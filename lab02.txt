@@ -1,0 +1,53 @@
+PART 1
+............................
+mkdir lab02
+cd lab02
+sudo apt install git
+git init
+cat > README.md << EOF..
+git add -A
+git config --global ...
+git remote add origin ...
+git commit -m "..."
+git push -u origin master
+cat > hello_world.cpp << EOF...
+git add hello_world.cpp
+git commit -m"..."
+git push
+nano hello_world.cpp
+git add .
+git commit -m "..."
+git push
+.................................
+PART 2
+.................................
+git checkout -b patch1
+nano hello_world.cpp
+git add -A
+git commit -m "..."
+git push origin patch1
+nano hello_world.cpp
+git add hello_world.cpp
+git commit -m "..."
+git push origin patch1
+git checkout master
+git merge origin/patch1
+git push origin --delete patch1
+git branch -d patch1
+................................
+PART 3
+................................
+git checkout -b patch2
+sudo apt install clang-format
+clang-format -style=Mozilla hello_world.cpp
+nano hello_world.cpp
+git add hello_world.cpp
+git commit -m "..."
+git push origin patch2
+git pull -rebase origin master
+git add -A
+git rebase --continue
+git push --force origin patch2
+git checkout master
+git merge origin/patch2
+git push origin master
